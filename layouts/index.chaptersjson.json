@@ -1,0 +1,29 @@
+{{- $chapters := slice -}}
+{{- $pages := where .Site.RegularPages "Section" "chapters" -}}
+
+{{- range $pages -}}
+  {{- $id := -1 -}}
+  {{- $title := "" -}}
+
+  {{- $matches := findRESubmatch `(?m)^#\s*Chapter\s+(\d+):\s*(.*)$` .RawContent 1 -}}
+
+  {{- if $matches -}}
+    {{- $match := index $matches 0 -}}
+    {{- $id = int (index $match 1) -}}
+    {{- $title = index $match 2 -}}
+  {{- else -}}
+    {{- $title = .Title -}}
+  {{- end -}}
+
+  {{- if ge $id 0 -}}
+    {{- $chapterData := dict
+      "id" $id
+      "title" $title
+      "url" .RelPermalink
+    -}}
+    {{- $chapters = $chapters | append $chapterData -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $chapters = sort $chapters "id" "asc" -}}
+{{- $chapters | jsonify -}}
