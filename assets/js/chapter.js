@@ -63,10 +63,10 @@ const DOM = {
 
 const NavigationManager = {
     prevUrl: PREV_CHAPTER_NUM
-        ? `/myriadpaths/chapters/${PREV_CHAPTER_NUM}/`
+        ? `/uth/chapters/${PREV_CHAPTER_NUM}/`
         : "",
     nextUrl: NEXT_CHAPTER_NUM
-        ? `/myriadpaths/chapters/${NEXT_CHAPTER_NUM}/`
+        ? `/uth/chapters/${NEXT_CHAPTER_NUM}/`
         : "",
 
     init() {
@@ -451,7 +451,7 @@ const HistoryManager = {
             timestamp: Date.now(),
         };
 
-        localStorage.setItem("myriad-paths-last-read", JSON.stringify(history));
+        localStorage.setItem("uth-last-read", JSON.stringify(history));
     },
 };
 

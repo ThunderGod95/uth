@@ -10,7 +10,7 @@ const HighlightManager = {
 
     config: {
         allowedColors: new Set(["yellow", "green", "blue", "red"]),
-        storagePrefix: "myriad-paths-highlights-",
+        storagePrefix: "uth-paths-highlights-",
         selectors: {
             content:
                 (typeof CONFIG !== "undefined" &&

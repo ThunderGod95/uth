@@ -28,7 +28,7 @@
 
 {{- $swVersion := delimit $assetsToHash "" | md5 -}}
 
-const CACHE_NAME = "myriadpaths-cache-{{ $swVersion }}";
+const CACHE_NAME = "uth-cache-{{ $swVersion }}";
 
 const ASSETS = [
     '{{- "" | relURL -}}',
